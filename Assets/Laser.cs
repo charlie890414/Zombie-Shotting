@@ -8,10 +8,10 @@ public class Laser : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        int face = PlayerControl.face;
+
+    // Update is called once per frame
+    int face = PlayerControl.face;
+    void Update () {
         switch (face)
         {
             case 0:
