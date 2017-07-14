@@ -2,12 +2,25 @@
 # Unity generated #
 # =============== #
 Temp/
+metadata/
+ScriptAssemblies/
+ShaderCache/
+UnityAssemblies/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
 ExportedObj/
 obj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
 *.exe
 
 # ============ #
