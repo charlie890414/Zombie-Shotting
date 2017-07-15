@@ -1,11 +1,8 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-metadata/
-ScriptAssemblies/
-ShaderCache/
-UnityAssemblies/
+Temp/ 
+Library/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
