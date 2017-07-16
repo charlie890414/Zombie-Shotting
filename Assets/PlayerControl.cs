@@ -25,32 +25,27 @@ public class PlayerControl : MonoBehaviour {
 	void Update () {
         //玩家控制
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             gameObject.transform.position += new Vector3(0, 0.1f, 0);
-            face = 0;
-            face1 = face;
+            
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             gameObject.transform.position += new Vector3(0, -0.1f, 0);
-            face = 1;
-            face1 = face;
+            
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             gameObject.transform.position += new Vector3(-0.1f, 0, 0);
-            face = 2;
-            face1 = face;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.transform.position += new Vector3(0.1f, 0, 0);
-            face = 3;
-            face1 = face;
+            
         }
         if (Input.GetKeyDown(KeyCode.R) && nextFire < Time.time)
         {
@@ -58,7 +53,7 @@ public class PlayerControl : MonoBehaviour {
             playerbullet = playerbulletvalue;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
             //Debug.Log(playerbullet);
             //顯示剩餘子彈數量
@@ -94,6 +89,28 @@ public class PlayerControl : MonoBehaviour {
                         break;
                 }
             }
+        }
+
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            face = 0;
+            face1 = face;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            face = 1;
+            face1 = face;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            face = 2;
+            face1 = face;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            face = 3;
+            face1 = face;
         }
     }
 
