@@ -726,7 +726,7 @@ Transform:
   m_GameObject: {fileID: 1865550417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_Children:
   - {fileID: 1327671365}
   m_Father: {fileID: 0}
@@ -893,6 +893,7 @@ GameObject:
   - component: {fileID: 2065395431}
   - component: {fileID: 2065395433}
   - component: {fileID: 2065395434}
+  - component: {fileID: 2065395435}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -966,6 +967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7335913d2ae20a48890afde6fbe13d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Zombie: {fileID: 0}
+  zomps: 0
 --- !u!82 &2065395434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1046,3 +1049,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &2065395435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065395430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7335913d2ae20a48890afde6fbe13d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Zombie: {fileID: 1351523160184726, guid: a5b06414c4e40f64c8c9fbd60b1c84b2, type: 2}
+  zomps: 0
