@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerControl : MonoBehaviour {
 
     public GameObject Laser;
+
+    //剩餘子彈數
+    public Text BulletNumber;
+
+
+    //音效
+    public AudioClip sound;
+    public AudioSource source;
 
     public static int face = 0;
     public int face1;
@@ -14,15 +23,26 @@ public class PlayerControl : MonoBehaviour {
     //定義數值
     private const int playerbulletvalue = 25; //子彈數
     private const float cliptime=1.5f, nextFirevalue=0.0f; //子彈間隔,無須設定
+    public int Bullet = playerbulletvalue;
 
     // Use this for initialization
     void Start () {
         playerbullet = playerbulletvalue;
         nextFire = nextFirevalue;
+        BulletNumber.text = "" + playerbullet;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        
+
+        //裝彈顯示
+        if (!(playerbullet == playerbulletvalue && nextFire > Time.time))
+        {
+            BulletNumber.text = "" + playerbullet;
+        }
+
         //玩家控制
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -64,6 +84,7 @@ public class PlayerControl : MonoBehaviour {
             }
             else
             {
+                
                 //判斷方向，取得face1代碼
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -108,14 +129,25 @@ public class PlayerControl : MonoBehaviour {
                         
                 }
                 playerbullet -= 1;
+                BulletNumber.text = "" + playerbullet;
                 //扣一發子彈
                 //若子彈歸0則換彈匣(設定下一發時間)
                 if (playerbullet == 0 && nextFire < Time.time)
                 {
                     nextFire = Time.time + cliptime;
                     playerbullet = playerbulletvalue;
+                    
                 }
             }
-        }   
+            
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(nextFire < Time.time)
+            {
+                nextFire = Time.time + cliptime;
+                playerbullet = playerbulletvalue;
+            }
+        }
     }
 }
