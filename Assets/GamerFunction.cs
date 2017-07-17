@@ -23,10 +23,10 @@ public class GamerFunction : MonoBehaviour
     {
 
         zomps++;
-        if (zomps == 10)
+        if (zomps <= 10)
         {
             SpawnZombie();
-            zomps = 0;
+            
         }
 
     }

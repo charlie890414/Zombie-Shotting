@@ -17,11 +17,4 @@ public class Car2 : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag == "Laser")
-        {
-            Destroy(col.gameObject);
-        }
-    }
 }

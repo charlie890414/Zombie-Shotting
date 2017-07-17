@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public float speed=15;
+    // Use this for initialization
+    void Start () {
 		
 	}
 
@@ -15,17 +15,23 @@ public class Laser : MonoBehaviour {
         switch (face)
         {
             case 0:
-                gameObject.transform.position += new Vector3(0, 0.4f, 0);
+                transform.Translate(Vector2.right * Time.deltaTime * speed);
                 break;
             case 1:
-                gameObject.transform.position += new Vector3(0, -0.4f, 0);
+                transform.Translate(Vector2.left * Time.deltaTime * speed);
                 break;
             case 2:
-                gameObject.transform.position += new Vector3(-0.4f, 0, 0);
+                transform.Translate(Vector2.left * Time.deltaTime * speed);
                 break;
             case 3:
-                gameObject.transform.position += new Vector3(0.4f, 0, 0);
+                transform.Translate(Vector2.right * Time.deltaTime * speed);
                 break;
         }
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("擊中");
+        Destroy(this.gameObject);
+
     }
 }
