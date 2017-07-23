@@ -35,7 +35,30 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        
+
+        Vector3 mouse = Input.mousePosition;
+        Vector3 player = gameObject.transform.position;
+        float x = mouse.x - player.x;
+        float y = mouse.y - player.y;
+        float tan = x / y;
+        //gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
+        if(x > 0 && y > 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
+        }
+        if(x < 0 && y > 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
+        }
+        if(x < 0 && y < 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI)+180);
+        }
+        if(x > 0 && y < 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI) + 180);
+        }
+
 
         //裝彈顯示
         if (!(playerbullet == playerbulletvalue && nextFire > Time.time))
@@ -45,24 +68,24 @@ public class PlayerControl : MonoBehaviour {
 
         //玩家控制
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             gameObject.transform.position += new Vector3(0, 0.1f, 0);
             
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             gameObject.transform.position += new Vector3(0, -0.1f, 0);
             
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             gameObject.transform.position += new Vector3(-0.1f, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             gameObject.transform.position += new Vector3(0.1f, 0, 0);
             
@@ -84,29 +107,11 @@ public class PlayerControl : MonoBehaviour {
             }
             else
             {
-                
+
                 //判斷方向，取得face1代碼
-                if (Input.GetKey(KeyCode.W))
-                {
-                    face = 0;
-                    face1 = face;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    face = 1;
-                    face1 = face;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    face = 2;
-                    face1 = face;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    face = 3;
-                    face1 = face;
-                }
                 
+
+
                 //子彈現型，交給laser.cs設定飛行速度
                 switch (face)
                 {
