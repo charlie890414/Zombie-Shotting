@@ -6,8 +6,12 @@ public class ZombieFunction : MonoBehaviour {
 
     float ZombiieSpeed = 0.03f;
 
-	// Use this for initialization
-	void Start () {
+    //zombie ability
+    public int blood;
+    public int attack;
+
+    // Use this for initialization
+    void Start () {
 	}
 
 	// Update is called once per frame

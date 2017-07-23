@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour {
     //剩餘子彈數
     public Text BulletNumber;
 
+    //player ability
+    public int blood;
+    public int attack;
+
 
     //音效
     public AudioClip sound;
