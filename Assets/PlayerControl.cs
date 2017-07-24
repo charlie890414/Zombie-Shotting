@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
         //Debug.Log(x);
         //Debug.Log(y);
         //gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
-        if (x > 0 && y > 0)
+        if (x > 0 && y > 0)    
         {
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
         }
@@ -104,7 +104,7 @@ public class PlayerControl : MonoBehaviour {
             playerbullet = playerbulletvalue;
         }
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log(playerbullet);
             //顯示剩餘子彈數量
@@ -117,29 +117,33 @@ public class PlayerControl : MonoBehaviour {
             {
 
                 //判斷方向，取得face1代碼
-                
+
 
 
                 //子彈現型，交給laser.cs設定飛行速度
-                switch (face)
+                if (x > 0 && y > 0)
                 {
-                    case 0:
-                        Vector3 pos = gameObject.transform.position + new Vector3(0, 1f, 0);
-                        Instantiate(Laser, pos, Quaternion.Euler(0f, 0f, 90f));
-                        break;
-                    case 1:
-                        Vector3 pos1 = gameObject.transform.position + new Vector3(0, -1f, 0);
-                        Instantiate(Laser, pos1, Quaternion.Euler(0f, 0f, 90f));
-                        break;
-                    case 2:
-                        Vector3 pos2 = gameObject.transform.position + new Vector3(-1f, 0, 0);
-                        Instantiate(Laser, pos2, gameObject.transform.rotation);
-                        break;
-                    case 3:
-                        Vector3 pos3 = gameObject.transform.position + new Vector3(1f, 0, 0);
-                        Instantiate(Laser, pos3, gameObject.transform.rotation);
-                        break;
-                        
+                    Vector3 pos = gameObject.transform.position + new Vector3(1, 0, 0);
+                    Instantiate(Laser, pos, gameObject.transform.rotation);
+                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                }
+                else if (x < 0 && y > 0)
+                {
+                    Vector3 pos1 = gameObject.transform.position + new Vector3(-1f, 0f, 0);
+                    Instantiate(Laser, pos1, gameObject.transform.rotation);
+                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                }
+                else if (x < 0 && y < 0)
+                {
+                    Vector3 pos2 = gameObject.transform.position + new Vector3(-1f, 0, 0);
+                    Instantiate(Laser, pos2, gameObject.transform.rotation);
+                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                }
+                else if (x > 0 && y < 0)
+                {
+                    Vector3 pos3 = gameObject.transform.position + new Vector3(1f, 0, 0);
+                    Instantiate(Laser, pos3, gameObject.transform.rotation);
+                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
                 }
                 playerbullet -= 1;
                 BulletNumber.text = "" + playerbullet;

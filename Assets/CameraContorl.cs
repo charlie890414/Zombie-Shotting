@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraContorl : MonoBehaviour {
 
+    //follow player
+    public GameObject player;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,23 +15,7 @@ public class CameraContorl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.W)) {
-            gameObject.transform.position += new Vector3(0, 0.1f, 0);
-
-        }
-
-        if (Input.GetKey(KeyCode.S)) {
-            gameObject.transform.position += new Vector3(0, -0.1f, 0);
-
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-            gameObject.transform.position += new Vector3(-0.1f, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D)) {
-            gameObject.transform.position += new Vector3(0.1f, 0, 0);
-
-        }
+        Vector3 vec = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z - 5);
+        gameObject.transform.position = vec;
     }
 }
