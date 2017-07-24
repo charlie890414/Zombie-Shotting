@@ -39,28 +39,32 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-        Vector3 mouse = Input.mousePosition;
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 player = gameObject.transform.position;
         float x = mouse.x - player.x;
         float y = mouse.y - player.y;
-        float tan = x / y;
+        float tan = y / x;
+        //Debug.Log(Mathf.Atan(tan) * 180 / Mathf.PI);
+        Debug.Log(mouse);
+        Debug.Log(player);
+        Debug.Log(x);
+        Debug.Log(y);
         //gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
-        if(x > 0 && y > 0)
+        if (x > 0 && y > 0)
         {
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
         }
-        if(x < 0 && y > 0)
+        else if(x < 0 && y > 0)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 180 - (Mathf.Atan(-tan) * 180 / Mathf.PI) );
         }
-        if(x < 0 && y < 0)
-        {
-            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI)+180);
-        }
-        if(x > 0 && y < 0)
+        else if(x < 0 && y < 0)
         {
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI) + 180);
+        }
+        else if(x > 0 && y < 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 360 - (Mathf.Atan(-tan) * 180 / Mathf.PI));
         }
 
 
