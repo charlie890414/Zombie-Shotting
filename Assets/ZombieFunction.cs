@@ -17,7 +17,7 @@ public class ZombieFunction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var player = GameObject.Find("Player");
-		//Debug.Log(player.transform.position);
+		Debug.Log(player.transform.position);
 		if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 6){
 			if (gameObject.transform.position.y < player.transform.position.y) gameObject.transform.position += new Vector3(0, ZombiieSpeed, 0);
 			else if (gameObject.transform.position.y > player.transform.position.y) gameObject.transform.position += new Vector3(0, -ZombiieSpeed, 0);
