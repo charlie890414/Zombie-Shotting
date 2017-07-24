@@ -45,10 +45,10 @@ public class PlayerControl : MonoBehaviour {
         float y = mouse.y - player.y;
         float tan = y / x;
         //Debug.Log(Mathf.Atan(tan) * 180 / Mathf.PI);
-        Debug.Log(mouse);
-        Debug.Log(player);
-        Debug.Log(x);
-        Debug.Log(y);
+        //Debug.Log(mouse);
+        //Debug.Log(player);
+        //Debug.Log(x);
+        //Debug.Log(y);
         //gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI);
         if (x > 0 && y > 0)
         {
