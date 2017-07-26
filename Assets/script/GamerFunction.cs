@@ -48,7 +48,7 @@ public class GamerFunction : MonoBehaviour
 
             case 2:
                 Vector3 pos3 = new Vector3(-13.9f, Random.Range(-9f, 0.5f), 0);
-                Instantiate(Zombie, pos3, Quaternion.Euler(0f, 0f, 0));
+                Instantiate(Zombie, pos3, Quaternion.Euler(0f, 0f, 0f));
                 break;
 
             case 3:

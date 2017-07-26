@@ -17,8 +17,10 @@ public class PlayerControl : MonoBehaviour {
 
 
     //音效
-    public AudioClip sound;
-    public AudioSource source;
+    public AudioClip Sound;
+    public AudioClip reload;
+    public float volume = 0;
+    public AudioSource audio;
 
     public static int face = 0;
     public int face1;
@@ -34,6 +36,8 @@ public class PlayerControl : MonoBehaviour {
         playerbullet = playerbulletvalue;
         nextFire = nextFirevalue;
         BulletNumber.text = "" + playerbullet;
+        audio = GetComponent<AudioSource>();
+        volume = 2f;
     }
 	
 	// Update is called once per frame
@@ -115,35 +119,31 @@ public class PlayerControl : MonoBehaviour {
             }
             else
             {
-
-                //判斷方向，取得face1代碼
-
-
-
                 //子彈現型，交給laser.cs設定飛行速度
                 if (x > 0 && y > 0)
                 {
                     Vector3 pos = gameObject.transform.position + new Vector3(1, 0, 0);
                     Instantiate(Laser, pos, gameObject.transform.rotation);
-                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                    audio.PlayOneShot(Sound, volume);
+
                 }
                 else if (x < 0 && y > 0)
                 {
                     Vector3 pos1 = gameObject.transform.position + new Vector3(-1f, 0f, 0);
                     Instantiate(Laser, pos1, gameObject.transform.rotation);
-                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                    audio.PlayOneShot(Sound, volume);
                 }
                 else if (x < 0 && y < 0)
                 {
                     Vector3 pos2 = gameObject.transform.position + new Vector3(-1f, 0, 0);
                     Instantiate(Laser, pos2, gameObject.transform.rotation);
-                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                    audio.PlayOneShot(Sound, volume);
                 }
                 else if (x > 0 && y < 0)
                 {
                     Vector3 pos3 = gameObject.transform.position + new Vector3(1f, 0, 0);
                     Instantiate(Laser, pos3, gameObject.transform.rotation);
-                    GameObject.Find("big one").GetComponent<AudioSource>().Play();
+                    audio.PlayOneShot(Sound, volume);
                 }
                 playerbullet -= 1;
                 BulletNumber.text = "" + playerbullet;
@@ -153,17 +153,19 @@ public class PlayerControl : MonoBehaviour {
                 {
                     nextFire = Time.time + cliptime;
                     playerbullet = playerbulletvalue;
-                    
+                    audio.PlayOneShot(reload, volume);
                 }
             }
             
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if(nextFire < Time.time)
+            audio.PlayOneShot(reload, volume);
+            if (nextFire < Time.time)
             {
                 nextFire = Time.time + cliptime;
                 playerbullet = playerbulletvalue;
+                
             }
         }
     }
