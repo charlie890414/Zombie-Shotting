@@ -102,9 +102,10 @@ public class GamerFunction : MonoBehaviour
 
     public void PlayGame()
     {
-        isPlay = true;
+        
         QuitButton.SetActive(false);
         PlayButton.SetActive(false);
+        isPlay = true;
     }
 
     public void ResetGame() //RestartButton的功能
@@ -112,6 +113,8 @@ public class GamerFunction : MonoBehaviour
     {
 
         Application.LoadLevel(Application.loadedLevel); //讀取關卡(已讀取的關卡)
+        PlayButton.SetActive(false);
+        QuitButton.SetActive(false);
 
     }
 
