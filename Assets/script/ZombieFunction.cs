@@ -50,7 +50,7 @@ public class ZombieFunction : MonoBehaviour {
 			else if (gameObject.transform.position.x > player.transform.position.x) gameObject.transform.position += new Vector3(-ZombiieSpeed, 0, 0);
 		}
 		else{
-            if (Vector3.Distance(gameObject.transform.position, dest) < 3 || Vector3.Distance(gameObject.transform.position, last_pos) < ZombiieSpeed / 2 ) {
+            if (Vector3.Distance(gameObject.transform.position, dest) < 3 || Vector3.Distance(gameObject.transform.position, last_pos) < ZombiieSpeed  ) {
                 dest = new Vector3(Random.Range(-13.9f, 13.9f), Random.Range(-10.8f, 10.8f), 0);
             }
             last_pos = gameObject.transform.position;
