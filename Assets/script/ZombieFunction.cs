@@ -9,11 +9,13 @@ public class ZombieFunction : MonoBehaviour {
     //zombie ability
     public static int Hp;
     public static int attack;
-
+    public Vector3 last_pos;
+    public Vector3 dest = new Vector3(Random.Range(-13.9f, 13.9f), Random.Range(-10.8f, 10.8f),0);
     // Use this for initialization
     void Start () {
         Hp = (int) 50  * GamerFunction.wave * GamerFunction.wave / 2;
         attack = 2;
+        last_pos = gameObject.transform.position;
 	}
 
 	// Update is called once per frame
@@ -27,29 +29,51 @@ public class ZombieFunction : MonoBehaviour {
 		var player = GameObject.Find("Player");
 		//Debug.Log(player.transform.position);
 		if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 6){
-			if (gameObject.transform.position.y < player.transform.position.y) gameObject.transform.position += new Vector3(0, ZombiieSpeed, 0);
+            float x = gameObject.transform.position.x - player.transform.position.x;
+            float y = gameObject.transform.position.y - player.transform.position.y;
+            float tan = y / x;
+            if (x > 0 && y > 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI+180);
+            }
+            else if (x < 0 && y > 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 180 - (Mathf.Atan(-tan) * 180 / Mathf.PI) + 180);
+            }
+            else if (x < 0 && y < 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI) + 180 + 180);
+            }
+            else if (x > 0 && y < 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 360 - (Mathf.Atan(-tan) * 180 / Mathf.PI) + 180);
+            }
+            if (gameObject.transform.position.y < player.transform.position.y) gameObject.transform.position += new Vector3(0, ZombiieSpeed, 0);
 			else if (gameObject.transform.position.y > player.transform.position.y) gameObject.transform.position += new Vector3(0, -ZombiieSpeed, 0);
 			if (gameObject.transform.position.x < player.transform.position.x) gameObject.transform.position += new Vector3(ZombiieSpeed, 0, 0);
 			else if (gameObject.transform.position.x > player.transform.position.x) gameObject.transform.position += new Vector3(-ZombiieSpeed, 0, 0);
 		}
 		else{
-			int num = Random.Range(1, 4);
-			switch (num){
-			case 1:
-				gameObject.transform.position += new Vector3(0, ZombiieSpeed, 0);
-				break;
-			case 2:
-				gameObject.transform.position += new Vector3(0, -ZombiieSpeed, 0);
-				break;
-			case 3:
-				gameObject.transform.position += new Vector3(ZombiieSpeed, 0 , 0);
-				break;
-			case 4:
-				gameObject.transform.position += new Vector3(-ZombiieSpeed, 0, 0);
-				break;
-			}
-
-		}
+            if (Vector3.Distance(gameObject.transform.position, dest) < 3 || Vector3.Distance(gameObject.transform.position, last_pos) < ZombiieSpeed  ) {
+                dest = new Vector3(Random.Range(-13.9f, 13.9f), Random.Range(-10.8f, 10.8f), 0);
+            }
+            last_pos = gameObject.transform.position;
+            float x = gameObject.transform.position.x - dest.x;
+            float y = gameObject.transform.position.y - dest.y;
+            float tan = y / x;
+            if (x > 0 && y > 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * 180 / Mathf.PI + 180);
+            }
+            else if (x < 0 && y > 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 180 - (Mathf.Atan(-tan) * 180 / Mathf.PI) + 180);
+            }
+            else if (x < 0 && y < 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(tan) * 180 / Mathf.PI) + 180 + 180);
+            }
+            else if (x > 0 && y < 0) {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 360 - (Mathf.Atan(-tan) * 180 / Mathf.PI) + 180);
+            }
+            if (gameObject.transform.position.y < dest.y) gameObject.transform.position += new Vector3(0, ZombiieSpeed, 0);
+            else if (gameObject.transform.position.y > dest.y) gameObject.transform.position += new Vector3(0, -ZombiieSpeed, 0);
+            if (gameObject.transform.position.x < dest.x) gameObject.transform.position += new Vector3(ZombiieSpeed, 0, 0);
+            else if (gameObject.transform.position.x > dest.x) gameObject.transform.position += new Vector3(-ZombiieSpeed, 0, 0);
+        }
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
