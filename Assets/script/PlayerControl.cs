@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour {
 
     public GameObject Laser;
+	public GameObject Gunhead;
 
     //剩餘子彈數
     public Text BulletNumber;
@@ -132,26 +133,26 @@ public class PlayerControl : MonoBehaviour {
                     //子彈現型，交給laser.cs設定飛行速度
                     if (x > 0 && y > 0)
                     {
-                        Vector3 pos = gameObject.transform.position + new Vector3(1, 0, 0);
+						Vector3 pos = Gunhead.gameObject.transform.position ;
                         Instantiate(Laser, pos, gameObject.transform.rotation);
                         audio.PlayOneShot(Sound, volume);
 
                     }
                     else if (x < 0 && y > 0)
                     {
-                        Vector3 pos1 = gameObject.transform.position + new Vector3(-1f, 0f, 0);
+                        Vector3 pos1 = Gunhead.gameObject.transform.position ;
                         Instantiate(Laser, pos1, gameObject.transform.rotation);
                         audio.PlayOneShot(Sound, volume);
                     }
                     else if (x < 0 && y < 0)
                     {
-                        Vector3 pos2 = gameObject.transform.position + new Vector3(-1f, 0, 0);
+						Vector3 pos2 = Gunhead.gameObject.transform.position ;
                         Instantiate(Laser, pos2, gameObject.transform.rotation);
                         audio.PlayOneShot(Sound, volume);
                     }
                     else if (x > 0 && y < 0)
                     {
-                        Vector3 pos3 = gameObject.transform.position + new Vector3(1f, 0, 0);
+						Vector3 pos3 = Gunhead.gameObject.transform.position ;
                         Instantiate(Laser, pos3, gameObject.transform.rotation);
                         audio.PlayOneShot(Sound, volume);
                     }
