@@ -113,8 +113,7 @@ public class GamerFunction : MonoBehaviour
     {
 
         Application.LoadLevel(Application.loadedLevel); //讀取關卡(已讀取的關卡)
-        PlayButton.SetActive(false);
-        QuitButton.SetActive(false);
+        
 
     }
 
