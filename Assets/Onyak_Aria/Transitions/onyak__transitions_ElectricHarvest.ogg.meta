@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 9bcb9fdc2dcc4d14b9fbc3257d1afdaf
+labels:
+- Audio
+- Effects
+- Ogg
+timeCreated: 1494066970
+licenseType: Store
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

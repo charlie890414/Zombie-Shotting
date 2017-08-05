@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: d04ec202f1084f04abd158e82b68403c
+labels:
+- Audio
+- BackgroundMusic
+- Battle
+- Drums
+- Mp3
+- Music
+- War
+timeCreated: 1492897887
+licenseType: Store
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
