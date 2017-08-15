@@ -18,12 +18,13 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4490532450046442}
+  - component: {fileID: 224807968518270774}
   - component: {fileID: 212938931367727396}
   - component: {fileID: 50554436872080908}
   - component: {fileID: 61290860854141010}
   - component: {fileID: 114012035090646366}
   - component: {fileID: 61183492200689998}
+  - component: {fileID: 222941398277051380}
   m_Layer: 0
   m_Name: ZombieObject
   m_TagString: zombie
@@ -31,19 +32,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4490532450046442
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351523160184726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9998183, y: -3.3899767, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50554436872080908
 Rigidbody2D:
   serializedVersion: 4
@@ -125,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7279f744d17584eaccb604b5a6868a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  last_pos: {x: 0, y: 0, z: 0}
+  dest: {x: 0, y: 0, z: 0}
 --- !u!212 &212938931367727396
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -167,3 +157,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!222 &222941398277051380
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351523160184726}
+--- !u!224 &224807968518270774
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351523160184726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.9998183, y: -3.3899767}
+  m_SizeDelta: {x: 3.18, y: 2.94}
+  m_Pivot: {x: 0.5, y: 0.5}
