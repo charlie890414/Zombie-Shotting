@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour {
     private int playerbullet;
     private float nextFire;
     //定義數值
-    private const int playerbulletvalue = 25; //子彈數
+    private const int playerbulletvalue = 30; //子彈數
     private const float cliptime=1.5f, nextFirevalue=0.0f; //子彈間隔,無須設定
     public int Bullet = playerbulletvalue;
 

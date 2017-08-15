@@ -6,21 +6,17 @@ public class ZombieFunction : MonoBehaviour {
 
     float ZombiieSpeed = 0.03f;
 
-    public GameObject Hpbar; 
-
     //zombie ability
     public static int Hp;
     public static int attack;
     public Vector3 last_pos;
     public Vector3 dest = new Vector3(Random.Range(-13.9f, 13.9f), Random.Range(-10.8f, 10.8f),0);
     // Use this for initialization
-    void Start()
-    {
-        Hp = (int)50 * GamerFunction.wave * GamerFunction.wave / 2;
+    void Start () {
+        Hp = (int) 50  * GamerFunction.wave * GamerFunction.wave / 5;
         attack = 2;
         last_pos = gameObject.transform.position;
-        Instantiate(Hpbar, gameObject.transform.position += new Vector3(0, 0.1f, 0), Quaternion.Euler(0, 0, 0));
-    }
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -86,14 +82,14 @@ public class ZombieFunction : MonoBehaviour {
 		{
 			Destroy(col.gameObject);
             Hp -= PlayerControl.attack;
-            GameObject.Find("white").GetComponent<UnityEngine.UI.Image>().fillAmount -= 0.15f;
-        }
+		}
 
         //若將失血量為0則destory
         if (Hp <= 0)
         {
             Destroy(gameObject);
             PlayerControl.KillNum += 1;
+			//Debug.Log ("killnum"+PlayerControl.KillNum);
             ZombieFunction.Hp = 1;
 
         }

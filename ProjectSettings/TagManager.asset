@@ -6,7 +6,6 @@ TagManager:
   tags:
   - car
   - Laser
-  - zombie
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - 
   - Background
   - Player
-  - logo
+  - 
   - 
   - 
   - 
@@ -49,7 +48,4 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: logo
-    uniqueID: 785006253
     locked: 0
