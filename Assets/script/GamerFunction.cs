@@ -18,7 +18,7 @@ public class GamerFunction : MonoBehaviour
 
     //zombie
     public GameObject Zombie;
-    public static int wave = 1;
+    public static int wave = 0;
     public int zomnum = 10;
 
     //zombie spawn speed
@@ -33,9 +33,21 @@ public class GamerFunction : MonoBehaviour
         RestartButton.SetActive(false);
         re = RestartButton;
         qu = QuitButton;
+		// 殭屍生成(名稱,起始時間,間隔時間) *此處代設定遊戲增長函數
+		InvokeRepeating ("zomptime", 1f, 3f);
     }
 
-    // Update is called once per frame
+
+	void zomptime (){
+		SpawnZombie(4); 
+		Debug.Log ("wave" + wave);
+		if (PlayerControl.KillNum >= wave*10*3/2) {
+			wave++;
+			wavetxt.text = ("wave: " + wave);
+		}
+	}
+
+	/*舊版殭屍生成
     void Update()
     {
 
@@ -64,7 +76,7 @@ public class GamerFunction : MonoBehaviour
         }
 
     }
-
+*/
     void SpawnZombie(int num)
     {
         if(isPlay == true)
@@ -113,7 +125,8 @@ public class GamerFunction : MonoBehaviour
     {
 
         Application.LoadLevel(Application.loadedLevel); //讀取關卡(已讀取的關卡)
-        
+        PlayButton.SetActive(false);
+        QuitButton.SetActive(false);
 
     }
 
