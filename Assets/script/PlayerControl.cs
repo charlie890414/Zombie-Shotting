@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
         volume = 2f;
         Hp = 100;
         attack = 50;
-        HpNum.text = "" + Hp;
+        HpNum.text = "HP: " + Hp;
     }
 	
 	// Update is called once per frame
@@ -197,7 +197,7 @@ public class PlayerControl : MonoBehaviour {
             else
             {
                 Hp -= ZombieFunction.attack;
-                HpNum.text = "" + Hp;
+                HpNum.text = "HP: " + Hp;
             }
         }
         

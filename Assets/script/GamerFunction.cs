@@ -46,6 +46,8 @@ public class GamerFunction : MonoBehaviour
 
     public static bool isPlay = false;
 
+    public GameObject Player;
+
 
     // Use this for initialization
 
@@ -67,6 +69,7 @@ public class GamerFunction : MonoBehaviour
 
         InvokeRepeating("zomptime", 1f, 3f);
 
+        Player.SetActive(false);
     }
 
 
@@ -217,7 +220,7 @@ public class GamerFunction : MonoBehaviour
 
     {
 
-
+        Player.SetActive(true);
 
         QuitButton.SetActive(false);
 
