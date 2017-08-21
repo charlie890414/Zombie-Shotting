@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
 
+    public JoyStick move;
+
     public GameObject Laser;
 	public GameObject Gunhead;
 
@@ -91,7 +93,15 @@ public class PlayerControl : MonoBehaviour {
 
             //玩家控制
 
-            if (Input.GetKey(KeyCode.W))
+            if(move.InputDirection != Vector3.zero)
+            {
+                float gx = move.InputDirection.x * 0.2f;
+                float gy = move.InputDirection.z * 0.2f;
+                gameObject.transform.position += new Vector3(gx, gy);
+            }
+
+
+           /* if (Input.GetKey(KeyCode.W))
             {
                 gameObject.transform.position += new Vector3(0, 0.1f, 0);
 
@@ -117,7 +127,7 @@ public class PlayerControl : MonoBehaviour {
             {
                 nextFire = Time.time + cliptime;
                 playerbullet = playerbulletvalue;
-            }
+            }*/
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {

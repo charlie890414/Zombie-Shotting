@@ -70,6 +70,7 @@ public class GamerFunction : MonoBehaviour
         InvokeRepeating("zomptime", 1f, 3f);
 
         Player.SetActive(false);
+        Input.multiTouchEnabled = true; // 允許多點觸碰
     }
 
 
